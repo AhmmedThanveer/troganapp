@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+import 'package:percent_indicator/percent_indicator.dart';
 import 'package:troganapp/Model/courselistmodel.dart';
 import 'package:troganapp/View%20Model/Provider/ApiService.dart';
 import 'package:troganapp/View/Screens/Course%20Listing%20Screen/Widgets/Appbar.dart';
@@ -152,31 +152,125 @@ class _CourselistingscreenState extends State<Courselistingscreen> {
             ),
             Upgradecoursetile(screenH: screenH),
             whatsapptile(screenH: screenH),
-            FutureBuilder<Courslistmodel>(
-              future: fetchCourseData(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator();
-                } else if (snapshot.hasError) {
-                  return Text('404 not found');
-                } else if (snapshot.hasData) {
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: snapshot.data!.data.length,
-                    itemBuilder: (context, index) {
-                      Datum section = snapshot.data!.data[index];
-                      return ListTile(
-                        leading:
-                            Image.network(section.sections[index].thumbnail),
-                        title: Text(section.title!),
-                      );
-                    },
+            // FutureBuilder<Courslistmodel>(
+            //   future: fetchCourseData(),
+            //   builder: (context, snapshot) {
+            //     if (snapshot.connectionState == ConnectionState.waiting) {
+            //       return CircularProgressIndicator();
+            //     } else if (snapshot.hasError) {
+            //       return Text('404 not found');
+            //     } else if (snapshot.hasData) {
+            //       return ListView.builder(
+            //         shrinkWrap: true,
+            //         physics: NeverScrollableScrollPhysics(),
+            //         itemCount: snapshot.data!.data.length,
+            //         itemBuilder: (context, index) {
+            //           Datum section = snapshot.data!.data[index];
+            //           return ListTile(
+            //             leading:
+            //                 Image.network(section.sections[index].thumbnail),
+            //             title: Text(section.title!),
+            //           );
+            //         },
+            //       );
+            //     } else {
+            //       return Text('No data found');
+            //     }
+            //   },
+            // ),
+            // api connection need lsitview builder
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: 5, // Set the number of items in the list
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.3),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Asset Image
+                        Container(
+                          width: screenW / 3.2,
+                          height: screenH / 8,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/images/cover.png'), // Replace with your asset image path
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 15),
+                        // Text widget
+                        Expanded(
+                          child: Column(
+                            // crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Day 3 - Lesson 1 ', // Dynamic text
+                                style: GoogleFonts.inter(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xFF512E7E),
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                              Text(
+                                'All About DID', // Dynamic text
+                                style: GoogleFonts.inter(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color.fromARGB(255, 27, 27, 27),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: 15),
+                        // Circular Progress Indicator
+                        Column(
+                          children: [
+                            SizedBox(height: 15),
+                            CircularPercentIndicator(
+                              radius: 35.0,
+                              lineWidth: 6.0,
+                              percent:
+                                  0.7, // Replace with the percentage you want to display (between 0.0 and 1.0)
+                              center: Text(
+                                "10.3 min%",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.inter(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color.fromARGB(255, 135, 134, 136),
+                                ),
+                              ),
+                              progressColor: Color(0xFF512E7E),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   );
-                } else {
-                  return Text('No data found');
-                }
-              },
+                },
+              ),
             ),
           ],
         ),

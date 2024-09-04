@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:troganapp/View/Screens/Home%20Screen/MycourseScreen.dart';
+import 'package:troganapp/View/Screens/MyCourse%20Screen/MycourseScreen.dart';
 // import 'package:trogontest/View/Screens/Home%20Screen/homescreen.dart';
 
 void main() {

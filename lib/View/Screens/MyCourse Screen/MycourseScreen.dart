@@ -182,21 +182,38 @@ class _HomescreenState extends State<Mycoursescreen> {
         },
       ),
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: const Color.fromARGB(255, 196, 189, 189),
+        backgroundColor: Color.fromARGB(255, 223, 217, 217),
         buttonBackgroundColor: Color(0xFF512E7E),
         color: Colors.white,
         index: 2,
         animationDuration: const Duration(milliseconds: 300),
         items: <Widget>[
-          Icon(Icons.home, size: 20, color: Colors.grey),
-          Icon(Icons.message, size: 26, color: Colors.grey),
+          Image.asset(
+            'assets/images/home.png',
+            height: 30,
+            width: 40,
+          ),
+          Image.asset(
+            'assets/images/Subtract.png',
+            height: 30,
+            color: Colors.grey,
+            width: 40,
+          ),
           Image.asset(
             'assets/images/trophy.png',
             height: 30,
             width: 40,
           ),
-          Icon(Icons.notifications, size: 26, color: Colors.grey),
-          Icon(Icons.person, size: 26, color: Colors.grey),
+          Image.asset(
+            'assets/images/Reading.png',
+            height: 30,
+            width: 40,
+          ),
+          Image.asset(
+            'assets/images/home.png',
+            height: 30,
+            width: 40,
+          ),
         ],
         onTap: (index) {
           setState(() {
