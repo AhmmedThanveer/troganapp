@@ -11,10 +11,10 @@ import 'package:troganapp/Utill/List/list.dart';
 import 'package:troganapp/View%20Model/Provider/ApiService.dart';
 import 'package:troganapp/View/Screens/Course%20Listing%20Screen/courselistingscreen.dart';
 // import 'package:troganapp/View/Screens/Home%20Screen/Widgets/Bottombar.dart';
-import 'package:troganapp/View/Screens/Home%20Screen/Widgets/Courseround.dart';
-import 'package:troganapp/View/Screens/Home%20Screen/Widgets/TestseriesItem.dart';
-import 'package:troganapp/View/Screens/Home%20Screen/Widgets/appbarhome.dart';
-import 'package:troganapp/View/Screens/Home%20Screen/Widgets/griditem.dart';
+import 'package:troganapp/View/Screens/MyCourse%20Screen/Widgets/Courseround.dart';
+import 'package:troganapp/View/Screens/MyCourse%20Screen/Widgets/TestseriesItem.dart';
+import 'package:troganapp/View/Screens/MyCourse%20Screen/Widgets/appbarhome.dart';
+import 'package:troganapp/View/Screens/MyCourse%20Screen/Widgets/griditem.dart';
 
 class Mycoursescreen extends StatefulWidget {
   const Mycoursescreen({super.key});
