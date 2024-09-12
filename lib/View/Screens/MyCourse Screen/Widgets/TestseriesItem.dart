@@ -10,7 +10,7 @@ class TestseriesGriditem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 180,
+      height: 160,
       child: ListView.builder(
         shrinkWrap: true,
 
