@@ -28,10 +28,16 @@ class CourseIconWidget extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ).createShader(bounds),
-            child: CircleAvatar(
-              radius: 23,
-              backgroundColor: Colors.transparent,
-              backgroundImage: NetworkImage(iconUrl, scale: 5),
+            child: Padding(
+              padding: const EdgeInsets.all(3.0),
+              child: CircleAvatar(
+                radius: 30,
+                child: CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Colors.transparent,
+                  backgroundImage: NetworkImage(iconUrl, scale: 5),
+                ),
+              ),
             ),
           ),
         ),
@@ -39,6 +45,7 @@ class CourseIconWidget extends StatelessWidget {
         Text(
           courseName,
           textAlign: TextAlign.center,
+          maxLines: 1,
           style: GoogleFonts.inter(
             color: Colors.black,
             fontSize: 14,

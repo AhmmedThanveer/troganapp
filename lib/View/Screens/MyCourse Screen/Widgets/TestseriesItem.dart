@@ -9,33 +9,37 @@ class TestseriesGriditem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 8,
-        mainAxisSpacing: 10,
-        childAspectRatio: 0.98, // Adjust this value to increase height
-      ),
-      itemCount: 2, // Number of test series
-      itemBuilder: (context, index) {
-        // Define gradient colors for each card
-        final List<List<Color>> gradients = [
-          [
-            Color.fromARGB(255, 200, 122, 214),
-            Color(0xFF8E24AA)
-          ], // Gradient for first item
-          [
-            Color.fromARGB(255, 240, 191, 176),
-            Color.fromARGB(255, 235, 107, 68)
-          ], // Gradient for second item
-        ];
+    return SizedBox(
+      height: 180,
+      child: ListView.builder(
+        shrinkWrap: true,
 
-        return CustomShapeCard(
-          gradientColors: gradients[index], // Pass gradient colors to the card
-        );
-      },
+        scrollDirection: Axis.horizontal,
+        // physics: NeverScrollableScrollPhysics(),
+
+        itemCount: 2, // Number of test series
+        itemBuilder: (context, index) {
+          // Define gradient colors for each card
+          final List<List<Color>> gradients = [
+            [
+              Color.fromARGB(255, 200, 122, 214),
+              Color(0xFF8E24AA)
+            ], // Gradient for first item
+            [
+              Color.fromARGB(255, 240, 191, 176),
+              Color.fromARGB(255, 235, 107, 68)
+            ], // Gradient for second item
+          ];
+
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomShapeCard(
+              gradientColors:
+                  gradients[index], // Pass gradient colors to the card
+            ),
+          );
+        },
+      ),
     );
   }
 }
